@@ -12,4 +12,5 @@ urlpatterns = [
     path('comments/<int:pk>/', CommentDetail.as_view()),
     path('category/<int:pk>/', CategoryDetail.as_view()),
     path('logout/<int:pk>/', LogoutAPIView.as_view()),
+    path('post_list/', PostList.as_view()),
 ]

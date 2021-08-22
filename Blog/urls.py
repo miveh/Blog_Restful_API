@@ -23,5 +23,6 @@ urlpatterns = [
     # برای لاگین و لاگ اوت اینجا رست اومد اتنتیکیشن خودشو داد ب ما
     # path('api-auth/', include('rest_framework.urls'))
     #این لاگین توکن بیس هست
-    path('login/', view=obtain_auth_token)
+    path('login/', view=obtain_auth_token),
+    path('logout/', view=obtain_auth_token)
 ]

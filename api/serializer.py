@@ -1,7 +1,7 @@
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from api.models import Post, Comment, Category
+from api.models import Post, Comment, Category, CustomUser
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
     categories = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ['id', 'username', 'posts', 'comments', 'categories']
 
 
