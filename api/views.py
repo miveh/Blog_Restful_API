@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView
@@ -82,9 +82,9 @@ class CategoryDetail(RetrieveUpdateDestroyAPIView):
 class LogoutAPIView(GenericAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
-    def logout(self, request):
+    def post(self, request):
         request.user.auth_token.delete()
-        return Response(data={"message": f"Good by {self.user.username}"})
+        return Response(data={"message": f"Good by {request.user.username}"})
 
 
 @method_decorator(csrf_exempt, name='dispatch')

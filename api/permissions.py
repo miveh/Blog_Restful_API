@@ -1,8 +1,9 @@
 from rest_framework import permissions
 from rest_framework.permissions import BasePermission
 
+
 # برای رست بود این
-# یا صاحب پست یا فقط ببینه
+# یا صاحب پستادیت کنه یا اگه صاحب پست نبود فقط ببینه
 class IsOwnerOrReadOnly(BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:

@@ -20,9 +20,11 @@ from rest_framework.authtoken.views import obtain_auth_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+
     # برای لاگین و لاگ اوت اینجا رست اومد اتنتیکیشن خودشو داد ب ما
     # path('api-auth/', include('rest_framework.urls'))
-    #این لاگین توکن بیس هست
+
+    # این لاگین توکن بیس هست
     path('login/', view=obtain_auth_token),
     path('logout/', view=obtain_auth_token)
 ]
